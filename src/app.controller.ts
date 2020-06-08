@@ -1,7 +1,6 @@
 import { Controller, Get, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AppService } from './app.service';
 import { HelloDto } from './hello.dto';
-import { startCase } from 'lodash';
 
 @Controller()
 export class AppController {
