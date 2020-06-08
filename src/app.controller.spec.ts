@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { HelloDto } from './hello.dto';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -16,7 +17,8 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      const helloDto = new HelloDto();
+      expect(appController.getHello(helloDto)).toBe('Hello World!');
     });
   });
 });
