@@ -1,12 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AppService } from './app.service';
+import { HelloDto } from './hello.dto';
+import { startCase } from 'lodash';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @UsePipes(new ValidationPipe({ transform: true }))
+  getHello(@Query() helloDto: HelloDto): string {
+    return this.appService.getHello(helloDto);
   }
 }

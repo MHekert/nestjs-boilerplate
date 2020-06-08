@@ -2,6 +2,8 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+Swagger updates at compilation time.
+
 ## Installation
 
 ```bash
